@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EnvironmentInjector } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { register } from 'swiper/element/bundle';
@@ -12,9 +12,11 @@ register();
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {
-  constructor() {
-    this.initializeApp();
-  }
+  constructor(public environmentInjector: EnvironmentInjector) { }
+  
+  // constructor() {
+  //   this.initializeApp();
+  // }
 
   async initializeApp() {
     await SplashScreen.show({

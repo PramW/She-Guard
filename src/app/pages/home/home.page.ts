@@ -29,33 +29,22 @@ export class HomePage implements OnInit {
 
   slides: any[] = [];
 
-  // public config: SwiperOptions = {
-  //   modules: [Pagination, Navigation],
-  //   navigation: false,
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //     clickable: true,
-  //     dynamicBullets: true,
-  //   },
-  //   slidesPerView: 1,
-  //   loop: true,
-  //   autoplay: {
-  //     delay: 4000,
-  //     disableOnInteraction: false,
-  //   },
-  //   centeredSlides: true,
-  //   effect: 'fade',
-  // };
-
   constructor() {}
 
   ngOnInit(): void {
     this.slides = [
       {
-        banner: 'assets/images/forgot-password/forgotp.png',
+        banner: 'assets/images/home/carousel/1.png',
       },
-      { banner: 'assets/images/verification-email/email.png' },
-      { banner: 'assets/images/new-password/np.png' },
+      {
+        banner: 'assets/images/home/carousel/2.png',
+      },
+      {
+        banner: 'assets/images/home/carousel/3.png',
+      },
+      {
+        banner: 'assets/images/home/carousel/4.png',
+      },
     ];
   }
 }

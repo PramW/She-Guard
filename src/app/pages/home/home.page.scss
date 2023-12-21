@@ -1,0 +1,68 @@
+ion-col {
+  background-color: #135d54;
+  border: solid 1px #fff;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-direction: row;
+  justify-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.item {
+  flex-wrap: nowrap;
+  width: 18vw;
+  height: auto;
+  display: flex;
+  margin: 0px 32px 0px 16px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.item img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 5px; /* Mengaplikasikan sudut bulat pada seluruh gambar */
+}
+
+.item .caption {
+  margin-top: 16px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Latar belakang semi transparan */
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+
+  justify-content: space-between;
+  flex-direction: row;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.card-item {
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  width: 64vw;
+  height: 32vh;
+}
