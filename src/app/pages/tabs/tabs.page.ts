@@ -1,7 +1,7 @@
 import { Component, EnvironmentInjector, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -11,7 +11,14 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class TabsPage implements OnInit {
-  constructor(public environmentInjector: EnvironmentInjector) { }
+  constructor(
+    public environmentInjector: EnvironmentInjector,
+    public navCtrl: NavController
+  ) {}
+
+  navigateForward() {
+    this.navCtrl.navigateForward('tabs/panic-button');
+  }
 
   ngOnInit() {}
 }

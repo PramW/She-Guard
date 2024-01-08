@@ -1,0 +1,111 @@
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+  --ion-color-rose: #831843;
+  --ion-color-rose-rgb: 131, 24, 67;
+  --ion-color-rose-contrast: #ffffff;
+  --ion-color-rose-contrast-rgb: 255, 255, 255;
+  --ion-color-rose-shade: #73153b;
+  --ion-color-rose-tint: #8f2f56;
+
+  --ion-text-color: #881337;
+  --ion-text-color-rgb: 136, 19, 55;
+
+  --ion-color-step-50: #f9e6e9;
+  --ion-color-step-100: #f3dbdf;
+  --ion-color-step-150: #edd0d6;
+  --ion-color-step-200: #e7c5cd;
+  --ion-color-step-250: #e1bac3;
+  --ion-color-step-300: #dbaeba;
+  --ion-color-step-350: #d5a3b1;
+  --ion-color-step-400: #cf98a7;
+  --ion-color-step-450: #c98d9e;
+  --ion-color-step-500: #c48295;
+  --ion-color-step-550: #be778b;
+  --ion-color-step-600: #b86c82;
+  --ion-color-step-650: #b26178;
+  --ion-color-step-700: #ac566f;
+  --ion-color-step-750: #a64b66;
+  --ion-color-step-800: #a03f5c;
+  --ion-color-step-850: #9a3453;
+  --ion-color-step-900: #94294a;
+  --ion-color-step-950: #8e1e40;
+}
+
+// ion-datetime {
+//   //   border-radius: 16px;
+// }
+
+// ion-datetime::part(month-year-button) {
+// }
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: rem;
+  flex-direction: column;
+  white-space: nowrap;
+  overflow-y: auto;
+}
+
+.card-item {
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--Netral-30, #53535374);
+}
+
+@media (min-width: 640px) {
+  table {
+    display: inline-table !important;
+  }
+
+  thead tr:not(:first-child) {
+    display: none;
+  }
+}
+
+td:not(:last-child) {
+  border-bottom: 0;
+}
+
+th:not(:last-child) {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+ion-col.col-1\/7 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 8.33333%;
+  -ms-flex: 0 0 8.33333%;
+  flex: 0 0 14.285714285714286%;
+  width: 14.285714285714286%;
+  max-width: 14.285714285714286%;
+  padding: 0;
+}
+
+.bg-opacity {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.group:hover .group-hover\:bg-opacity {
+  background-color: rgba(0, 0, 0, 0.1);
+}

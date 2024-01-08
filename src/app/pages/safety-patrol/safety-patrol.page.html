@@ -1,13 +1,472 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>safety-patrol</ion-title>
+<ion-header class="ion-no-border ion-no-shadow">
+  <ion-toolbar color="primary">
+    <ion-title class="text-center !text-xl"> Safety Control </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content scroll-y="false">
+  <div class="h-screen">
+    <div
+      class="h-1/2 w-full overflow-hidden items-center flex justify-center relative"
+    >
+      <div class="w-full min-h-full pb-18 bg-white dark:bg-gray-900">
+        <ion-grid class="w-full space-y-4">
+          <ion-row
+            class="justify-center animate__animated animate__fadeInUp animate__faster"
+          >
+            <ion-col size="12" sizeLg="8">
+              <ion-row class="justify-center">
+                <ion-col size="12">
+                  <div
+                    class="w-full px-4 mb-2 flex justify-between items-center space-x-2"
+                  >
+                    <button
+                      class="btn btn-ghost btn-sm font-medium capitalize focus:outline-none"
+                      (click)="showLastMonth()"
+                    >
+                      <ion-icon
+                        class="text-primary"
+                        src="assets/icon/chevron/chevron-back-outline.svg"
+                      ></ion-icon>
+                    </button>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">safety-patrol</ion-title>
-    </ion-toolbar>
-  </ion-header>
+                    <h2 class="text-center text-base font-semibold">
+                      {{ calendar!.title }} {{ year }}
+                    </h2>
+
+                    <button
+                      class="btn btn-ghost btn-sm font-medium capitalize focus:outline-none"
+                      (click)="showNextMonth()"
+                    >
+                      <ion-icon
+                        class="text-primary"
+                        src="assets/icon/chevron/chevron-forward-outline.svg"
+                      ></ion-icon>
+                    </button>
+                  </div>
+                </ion-col>
+              </ion-row>
+
+              <ion-row
+                class="animate__animated animate__fadeInUp animate__faster"
+              >
+                <ion-col class="col-1/7">
+                  <div
+                    class="relative h-12 flex flex-col justify-center items-center"
+                  >
+                    <p class="relative z-10 text-center text-xs font-medium">
+                      Min
+                    </p>
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col class="col-1/7">
+                  <div
+                    class="relative h-12 flex flex-col justify-center items-center"
+                  >
+                    <p class="relative z-10 text-center text-xs font-medium">
+                      Sen
+                    </p>
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col class="col-1/7">
+                  <div
+                    class="relative h-12 flex flex-col justify-center items-center"
+                  >
+                    <p class="relative z-10 text-center text-xs font-medium">
+                      Sel
+                    </p>
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col class="col-1/7">
+                  <div
+                    class="relative h-12 flex flex-col justify-center items-center"
+                  >
+                    <p class="relative z-10 text-center text-xs font-medium">
+                      Rab
+                    </p>
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col class="col-1/7">
+                  <div
+                    class="relative h-12 flex flex-col justify-center items-center"
+                  >
+                    <p class="relative z-10 text-center text-xs font-medium">
+                      Kam
+                    </p>
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col class="col-1/7">
+                  <div
+                    class="relative h-12 flex flex-col justify-center items-center"
+                  >
+                    <p class="relative z-10 text-center text-xs font-medium">
+                      Jum
+                    </p>
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col class="col-1/7">
+                  <div
+                    class="relative h-12 flex flex-col justify-center items-center"
+                  >
+                    <p class="relative z-10 text-center text-xs font-medium">
+                      Sab
+                    </p>
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+              </ion-row>
+
+              <ion-row
+                class="animate__animated animate__fadeInUp animate__faster"
+              >
+                <ion-col
+                  *ngFor="let item of calendar?.daysInLastMonth"
+                  class="col-1/7"
+                >
+                  <div
+                    class="group relative h-14 flex flex-col justify-center items-center cursor-pointer"
+                    (click)="showLastMonth(item)"
+                  >
+                    <p
+                      class="relative z-10 text-gray-500 dark:text-gray-400 text-center text-sm"
+                    >
+                      {{ item.date }}
+                    </p>
+
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 group-hover:bg-opacity rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col
+                  *ngFor="let item of calendar?.daysInThisMonth"
+                  class="col-1/7"
+                >
+                  <div
+                    class="group relative h-14 flex flex-col justify-center items-center cursor-pointer rounded-full"
+                    [ngClass]="{'text-white' : item.selected}"
+                    (click)="selectDate(item)"
+                  >
+                    <p
+                      class="relative z-10 text-center text-sm"
+                      [ngClass]="{'text-primary font-bold' : item.label === dateNow && !item.selected}"
+                    >
+                      {{ item.date }}
+                    </p>
+
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex justify-center items-end space-x-1"
+                      [ngClass]="{'rounded-full bg-gradient-to-r from-pmlighter to-primary shadow-md': item.selected}"
+                    ></div>
+
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 group-hover:bg-opacity rounded-full text-white"
+                    ></div>
+                  </div>
+                </ion-col>
+
+                <ion-col
+                  *ngFor="let item of calendar?.daysInNextMonth"
+                  class="col-1/7"
+                >
+                  <div
+                    class="group relative h-14 flex flex-col justify-center items-center cursor-pointer"
+                    (click)="showNextMonth(item)"
+                  >
+                    <p
+                      class="relative z-10 text-gray-500 dark:text-gray-400 text-center text-sm"
+                    >
+                      {{ item.date }}
+                    </p>
+
+                    <div
+                      class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 group-hover:bg-opacity rounded-md"
+                    ></div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <!-- <div class="flex flex-col justify-center items-center">
+          <img
+            src="assets/imgs/not-found.png"
+            alt=""
+            class="w-64 px-4 fill-current"
+          />
+          <div class="w-full">
+            <h3 class="px-4 text-center text-base font-medium dark:text-white">
+              Jadwal shift Anda tidak tersedia
+            </h3>
+          </div>
+        </div> -->
+      </div>
+      <!-- <ion-datetime presentation="date"></ion-datetime> -->
+    </div>
+    <div class="flex justify-between items-center -mt-10 mx-4 py-4">
+      <div>
+        <ion-card-title class="!text-2xl">Tugas Harian</ion-card-title>
+      </div>
+      <div>
+        <ion-button
+          class="h-8 text-sm"
+          color="primary"
+          align-items="center"
+          display="center"
+          expand="block"
+        >
+          Lihat Semua
+        </ion-button>
+      </div>
+    </div>
+    <div class="h-1/2 w-full overflow-y-auto items-center">
+      <div class="card-container mb-20">
+        <div class="card-item">
+          <ion-card class="card">
+            <ion-card-header>
+              <div class="flex justify-between items-center">
+                <div>
+                  <ion-card-title>Apar Check</ion-card-title>
+                </div>
+                <div>
+                  <ion-card-subtitle style="color: rgb(17, 224, 172)"
+                    >Diterima</ion-card-subtitle
+                  >
+                </div>
+              </div>
+            </ion-card-header>
+            <ion-card-content class="whitespace-normal">
+              Mei 14, 8:00 AM - 9:00 AM
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div class="card-item">
+          <ion-card class="card">
+            <ion-card-header>
+              <div class="flex justify-between items-center">
+                <div>
+                  <ion-card-title>Card Title P</ion-card-title>
+                </div>
+                <div>
+                  <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                </div>
+              </div>
+            </ion-card-header>
+            <ion-card-content class="whitespace-normal">
+              Here's a small text description for the card content. Nothing
+              more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div class="card-item">
+          <ion-card class="card">
+            <ion-card-header>
+              <div class="flex justify-between items-center">
+                <div>
+                  <ion-card-title>Card Title P</ion-card-title>
+                </div>
+                <div>
+                  <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                </div>
+              </div>
+            </ion-card-header>
+            <ion-card-content class="whitespace-normal">
+              Here's a small text description for the card content. Nothing
+              more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div class="card-item">
+          <ion-card class="card">
+            <ion-card-header>
+              <div class="flex justify-between items-center">
+                <div>
+                  <ion-card-title>Card Title P</ion-card-title>
+                </div>
+                <div>
+                  <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                </div>
+              </div>
+            </ion-card-header>
+            <ion-card-content class="whitespace-normal">
+              Here's a small text description for the card content. Nothing
+              more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div class="card-item">
+          <ion-card class="card">
+            <ion-card-header>
+              <div class="flex justify-between items-center">
+                <div>
+                  <ion-card-title>Card Title P</ion-card-title>
+                </div>
+                <div>
+                  <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                </div>
+              </div>
+            </ion-card-header>
+            <ion-card-content class="whitespace-normal">
+              Here's a small text description for the card content. Nothing
+              more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--   
+  <ion-grid>
+    <ion-row>
+      <ion-col class="">
+        <div class="items-center flex justify-center relative">
+          <ion-datetime presentation="date"></ion-datetime>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="flex justify-between items-center mx-4 relative">
+          <div>
+            <ion-card-title class="!text-2xl">Tugas Harian</ion-card-title>
+          </div>
+          <div>
+            <ion-button
+              class="h-8 text-sm"
+              color="primary"
+              align-items="center"
+              display="center"
+              expand="block"
+            >
+              Lihat Semua
+            </ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="card-container">
+          <div class="card-item">
+            <ion-card class="card">
+              <ion-card-header>
+                <div class="flex justify-between items-center">
+                  <div>
+                    <ion-card-title>Apar Check</ion-card-title>
+                  </div>
+                  <div>
+                    <ion-card-subtitle style="color: rgb(17, 224, 172)"
+                      >Diterima</ion-card-subtitle
+                    >
+                  </div>
+                </div>
+              </ion-card-header>
+              <ion-card-content class="whitespace-normal">
+                Mei 14, 8:00 AM - 9:00 AM
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div class="card-item">
+            <ion-card class="card">
+              <ion-card-header>
+                <div class="flex justify-between items-center">
+                  <div>
+                    <ion-card-title>Card Title P</ion-card-title>
+                  </div>
+                  <div>
+                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                  </div>
+                </div>
+              </ion-card-header>
+              <ion-card-content class="whitespace-normal">
+                Here's a small text description for the card content. Nothing
+                more, nothing less.
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div class="card-item">
+            <ion-card class="card">
+              <ion-card-header>
+                <div class="flex justify-between items-center">
+                  <div>
+                    <ion-card-title>Card Title P</ion-card-title>
+                  </div>
+                  <div>
+                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                  </div>
+                </div>
+              </ion-card-header>
+              <ion-card-content class="whitespace-normal">
+                Here's a small text description for the card content. Nothing
+                more, nothing less.
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div class="card-item">
+            <ion-card class="card">
+              <ion-card-header>
+                <div class="flex justify-between items-center">
+                  <div>
+                    <ion-card-title>Card Title P</ion-card-title>
+                  </div>
+                  <div>
+                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                  </div>
+                </div>
+              </ion-card-header>
+              <ion-card-content class="whitespace-normal">
+                Here's a small text description for the card content. Nothing
+                more, nothing less.
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div class="card-item">
+            <ion-card class="card">
+              <ion-card-header>
+                <div class="flex justify-between items-center">
+                  <div>
+                    <ion-card-title>Card Title P</ion-card-title>
+                  </div>
+                  <div>
+                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                  </div>
+                </div>
+              </ion-card-header>
+              <ion-card-content class="whitespace-normal">
+                Here's a small text description for the card content. Nothing
+                more, nothing less.
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
 </ion-content>

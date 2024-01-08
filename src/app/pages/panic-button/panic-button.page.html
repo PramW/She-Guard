@@ -1,13 +1,87 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>panic-button</ion-title>
+<ion-header class="ion-no-border ion-no-shadow">
+  <ion-toolbar color="primary">
+    <ion-title class="text-center !text-xl"> Panic Button </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">panic-button</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="mx-4 mt-8">
+    <ion-card-title>Apakah anda dalam bahaya?</ion-card-title>
+    <p class="mt-4">
+      Isikan form dibawah ini dan bantuan akan segera mendatangi anda
+    </p>
+    <ion-item>
+      <ion-select
+        label="Jenis Kejadian"
+        label-placement="floating"
+        class="mt-4"
+      >
+        <ion-select-option value="apple">Angin Penting</ion-select-option>
+        <ion-select-option value="banana">Kebakaran Jahanam</ion-select-option>
+        <ion-select-option value="orange">Pisang</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <!-- <ion-input
+      class="mt-4"
+      type="text"
+      label="Jenis Kejadian"
+      label-placement="floating"
+      fill="outline"
+      color="primary"
+      placeholder="Masukan Jenis Kejadian"
+    >
+    </ion-input> -->
+  </div>
+  <div class="flex justify-between items-center mx-4 mt-4">
+    <div>
+      <ion-input
+        class="mt-2"
+        type="text"
+        label="Unit"
+        label-placement="floating"
+        fill="outline"
+        color="primary"
+        placeholder="Masukan Unit"
+      >
+      </ion-input>
+    </div>
+    <div>
+      <ion-input
+        class="mt-2"
+        type="text"
+        label="Area"
+        label-placement="floating"
+        fill="outline"
+        color="primary"
+        placeholder="Masukan Area"
+      >
+      </ion-input>
+    </div>
+  </div>
+  <div class="mx-4 mt-4">
+    <ion-input
+      class="mt-2"
+      type="text"
+      label="Keterangan"
+      label-placement="floating"
+      fill="outline"
+      color="primary"
+      placeholder="Masukan Keterangan Kejadian"
+    >
+    </ion-input>
+  </div>
+  <div class="mx-4 mt-4">
+    <ion-checkbox labelPlacement="end">Kirim Lokasi Saya?</ion-checkbox>
+  </div>
+  <div class="ion-text-center mt-8 mx-4">
+    <ion-button
+      class="h-12 text-sm"
+      color="primary"
+      align-items="center"
+      display="center"
+      expand="block"
+    >
+      Kirim
+    </ion-button>
+  </div>
 </ion-content>

@@ -14,7 +14,7 @@ export class NotificationPage implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { console.log
   }
 
 }

@@ -1,22 +1,62 @@
 <ion-tabs>
+  <ion-fab
+    vertical="bottom"
+    horizontal="center"
+    translucent="true"
+    class="mb-4"
+    mode="md"
+  >
+    <ion-fab-button (click)="navigateForward()">
+      <ion-icon src="assets/icon/tabs/warning.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-tab-bar slot="bottom" color="white">
+    <ion-tab-button tab="home" class="text-[#6E6E6E]">
+      <ion-icon src="assets/icon/tabs/home.svg"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="safety-patrol" class="text-[#6E6E6E]">
+      <ion-icon src="assets/icon/tabs/clipboard.svg"></ion-icon>
+      <ion-badge>9</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="warning" class="custom-tab text-white">
+      <!-- <ion-icon src="assets/icon/tabs/warning.svg"></ion-icon> -->
+    </ion-tab-button>
+
+    <ion-tab-button tab="notification" class="text-[#6E6E6E]">
+      <ion-icon src="assets/icon/tabs/notifications.svg"></ion-icon>
+      <ion-badge>9</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile" class="custom-profile text-[#6E6E6E]">
+      <ion-icon src="assets/icon/tabs/person-circle.svg"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <!-- <ion-fab vertical="bottom" horizontal="center" translucent="true">
+    <ion-fab-button (click)="navigateForward()">
+      <ion-icon src="assets/icon/tabs/warning.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
-      <ion-icon name="home"></ion-icon>
+      <ion-icon src="assets/icon/tabs/home.svg"></ion-icon>
       Home
     </ion-tab-button>
-    <ion-tab-button tab="safety-patrol">
-      <ion-icon name="clipboard"></ion-icon>
+    <ion-tab-button tab="safety-patrol" class="clipboard">
+      <ion-icon src="assets/icon/tabs/clipboard.svg"></ion-icon>
+      <ion-badge *ngIf="new_message">{{new_message}}</ion-badge>
       Safety Patrol
     </ion-tab-button>
-    <ion-tab-button tab="notification">
-      <ion-icon name="notifications"></ion-icon>
+    <ion-tab-button tab="notification" class="notification">
+      <ion-icon src="assets/icon/tabs/notifications.svg"></ion-icon>
+      <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge>
       Notification
     </ion-tab-button>
     <ion-tab-button tab="profile">
-      <ion-icon name="person-circle"></ion-icon>
+      <ion-icon src="assets/icon/tabs/person-circle.svg"></ion-icon>
       Profile
     </ion-tab-button>
-  </ion-tab-bar>
+  </ion-tab-bar> -->
 </ion-tabs>
-
-
